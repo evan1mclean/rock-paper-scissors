@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script>
+            //computer play function
+            //store values of rock, paper, scissors in array
+            //return value from array with random index from 0 to array length -1
+            const gameActions = ["Rock", "Paper", "Scissors"];
+            function computerPlay() {
+                return gameActions[Math.floor(Math.random() * gameActions.length)];
+            }
+        </script>
+    </body>
+</html>
