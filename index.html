@@ -6,13 +6,57 @@
     </head>
     <body>
         <script>
-            //computer play function
-            //store values of rock, paper, scissors in array
-            //return value from array with random index from 0 to array length -1
-            const gameActions = ["Rock", "Paper", "Scissors"];
+            //Returns random value of rock, paper, or scissors
             function computerPlay() {
+                let gameActions = ["Rock", "Paper", "Scissors"];
                 return gameActions[Math.floor(Math.random() * gameActions.length)];
             }
+            //Function that plays round of rock paper scissors
+            function playRound(playerSelection, computerSelection) {
+                //make sure player selection is converted to lower then capitalize first letter
+                playerSelection = playerSelection.toLowerCase();
+                playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+
+                //if player selection = computer selection return go again message
+                if (playerSelection == computerSelection) {
+                    return "Draw! You threw the same attack!"
+                }
+                //if playerSelection = rock and computer selection = scissors return winning message, else return losing message
+                if (playerSelection == "Rock") {
+                    if (computerSelection == "Scissors") {
+                        return "Congratulations! Rock beats Scissors!"
+                    }
+                    else {
+                        return "You Lose! Paper beats Rock!"
+                    }
+                }
+                //if playerSelection = scissors and computer selection = paper return winning message, else return losing message
+                else if (playerSelection == "Scissors") {
+                    if (computerSelection == "Paper") {
+                        return "Congratulations! Scissors beats Paper!"
+                    }
+                    else {
+                        return "You Lose! Rock beats Scissors!"
+                    }
+                }
+                //if playerSelection = paper and computer selection = rock return winning message, else return losing message
+                else if (playerSelection == "Paper") {
+                    if (computerSelection == "Rock") {
+                        return "Congratulations! Paper beats Rock!"
+                    }
+                    else {
+                        return "You Lose! Scissors beats Paper!"
+                        }
+                }
+                else {
+                    return "Please enter a valid value of Rock, Paper, or Scissors"
+                }
+            }
+
+            let playerSelection = "rock";
+            let computerSelection = computerPlay();
+            console.log("The computer played: " + computerSelection);
+            console.log(playRound(playerSelection, computerSelection));
         </script>
     </body>
 </html>
