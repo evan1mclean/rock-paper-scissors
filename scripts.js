@@ -60,21 +60,24 @@ function resetGame() {
 
 //Create function to play game of rock paper scissors
 function game() {
-    //introduction to the game
-    console.log("This is a game of Rock, Paper, Scissors between you and the computer");
-    console.log("You will play 5 rounds and whoever has the most points at the end wins");
-    console.log("Good Luck!");
-    console.log("");
-
-        const btn = document.querySelector('.container');
-        btn.addEventListener('click', function(e) {
-            //create a counter for player and for computer
-            let playerSelection = e.target.getAttribute("class");
-            let computerSelection = computerPlay();
+    const btn = document.querySelectorAll('.weapon');
+    btn.forEach ((button) => button.addEventListener('click', function() {
+        let playerSelection;
+        let computerSelection = computerPlay();
+        if (button.classList.contains('rock')) {
+            playerSelection = "Rock";
             playRound(playerSelection, computerSelection);
-            endGame();
-        
-        });
-    resetGame();
+        }
+        else if (button.classList.contains('paper')) {
+            playerSelection = "Paper";
+            playRound(playerSelection, computerSelection);
+        }
+        else if (button.classList.contains('scissors')) {
+            playerSelection = "Scissors";
+            playRound(playerSelection, computerSelection);
+        }
+        endGame();
+        resetGame();
+    }));
 }
 game();
