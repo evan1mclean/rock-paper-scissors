@@ -1,0 +1,19 @@
+.header {
+    text-align: Center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rock,
+.paper,
+.scissors {
+    background-color: aquamarine;
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+}
