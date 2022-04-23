@@ -16,7 +16,25 @@ body {
 }
 .content {
     text-align: center;
-    height: 100px;
+    height: 75px;
+}
+
+.arena {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.arena img {
+    width: 200px;
+    height: 200px;
+}
+
+.arena p {
+    font-size: 40px;
+    font-weight: bold;
+    margin: auto;
 }
 
 .score {
@@ -27,13 +45,14 @@ body {
 
 .container {
     display: flex;
-    justify-content: center;
-    gap: 100px;
+    justify-content: space-between;
     flex-wrap: wrap;
+    width: 60%;
 }
 
 .weapon img{
-    max-width: 200px;
+    width: 200px;
+    height: 200px;
 }
 
 .footer {

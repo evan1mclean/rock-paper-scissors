@@ -13,8 +13,8 @@ const computerScore = document.querySelector("#computerScore");
 //win, draw, or lose message
 function playRound(playerSelection, computerSelection) {
     const content = document.querySelector(".content");
-    const contentParagraphs = document.querySelectorAll(".content p");
-    contentParagraphs.forEach(item => item.remove());
+    const contentParagraph = document.querySelector(".content p");
+    contentParagraph.remove();
     const roundMessage = document.createElement('p');
     content.appendChild(roundMessage);
     if (playerSelection === computerSelection) {
