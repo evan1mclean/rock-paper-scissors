@@ -47,15 +47,23 @@ function playRound(playerSelection, computerSelection) {
     computerScore.textContent = `Computer Score: ${computerCount}`;
 }
 
+//Function for ending game and displaying modal
 function endGame() {
     if (playerCount === 5 || computerCount === 5) {
-        console.log("");
-        console.log(`The final score is ${playerCount} to ${computerCount}.`);
+        const modal = document.getElementById('endGame');
+        const modalContent = document.querySelector(".modal-content");
+        modal.style.display = "block";
+        const btn = document.querySelector(".reset");
+        const scoreMessage = document.createElement("p");
+        const outcomeMessage = document.createElement("p");
+        modalContent.insertBefore(scoreMessage,btn);
+        modalContent.insertBefore(outcomeMessage,btn);
+        scoreMessage.textContent = `The final score is ${playerCount} to ${computerCount}.`;
         if (playerCount > computerCount) {
-            console.log("Congratulations! You have beaten the computer.");
+            outcomeMessage.textContent = "Congratulations! You have beaten the computer.";
         }
         else {
-            console.log("The computer has defeated you this time.");
+            outcomeMessage.textContent = "The computer has defeated you this time."
         }
     }
     else {
