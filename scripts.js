@@ -54,13 +54,14 @@ function endGame() {
 
 //Reloads the page when the button is clicked
 function resetGame() {
-    const btn = document.querySelector('button');
-    btn.addEventListener('click', () => window.location.reload());
+    const reset = document.querySelector('button');
+    reset.addEventListener('click', () => window.location.reload());
 }
 
 //Create function to play game of rock paper scissors
 function game() {
     const btn = document.querySelectorAll('.weapon');
+    //adds event listeners to the buttons to play a round once clicked
     btn.forEach ((button) => button.addEventListener('click', function() {
         let playerSelection;
         let computerSelection = computerPlay();
@@ -72,7 +73,7 @@ function game() {
             playerSelection = "Paper";
             playRound(playerSelection, computerSelection);
         }
-        else if (button.classList.contains('scissors')) {
+        else {
             playerSelection = "Scissors";
             playRound(playerSelection, computerSelection);
         }

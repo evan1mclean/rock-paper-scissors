@@ -1,19 +1,42 @@
+* {
+    border: 1px solid red;;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .header {
-    text-align: Center;
+    text-align: center;
+    width: 100%;
+}
+.content {
+    text-align: center;
+}
+
+.score {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 100px;
+    flex-wrap: wrap;
 }
 
-.rock,
-.paper,
-.scissors {
-    background-color: aquamarine;
-    border: 1px solid black;
-    width: 200px;
-    height: 100px;
+.weapon img{
+    max-width: 200px;
+}
+
+.footer {
+    width: 100%;
+    margin-top: auto;
     text-align: center;
 }
