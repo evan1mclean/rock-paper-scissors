@@ -31,6 +31,12 @@ body {
     height: 200px;
 }
 
+.arena .weapon {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+}
+
 .arena p {
     font-size: 40px;
     font-weight: bold;
@@ -40,7 +46,13 @@ body {
 .score {
     display: flex;
     flex-wrap: wrap;
-    gap: 100px;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.score p {
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .container {
