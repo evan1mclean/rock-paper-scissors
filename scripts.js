@@ -1,5 +1,7 @@
 let playerCount = 0;
 let computerCount = 0;
+const playerScore = document.querySelector("#playerScore");
+const computerScore = document.querySelector("#computerScore");
  
  //Returns random value of rock, paper, or scissors
  function computerPlay() {
@@ -7,33 +9,29 @@ let computerCount = 0;
     return gameActions[Math.floor(Math.random() * gameActions.length)];
 }
 
-//Function that plays round of rock paper scissors and updates player scores
+//Function that plays round of rock paper scissors, updates player scores, returns
+//win, draw, or lose message
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-
+    const content = document.querySelector(".content");
+    const contentParagraphs = document.querySelectorAll(".content p");
+    contentParagraphs.forEach(item => item.remove());
+    const roundMessage = document.createElement('p');
+    content.appendChild(roundMessage);
     if (playerSelection === computerSelection) {
-        console.log("Draw! You threw the same attack!");
-        return;
+        roundMessage.textContent = "Draw! You threw the same attack!"
     }
     else if ((playerSelection === "Rock" && computerSelection === "Scissors") ||
         (playerSelection === "Scissors" && computerSelection === "Paper") ||
         (playerSelection === "Paper" && computerSelection === "Rock")) {
-            console.log(`Congratulations! ${playerSelection} beats ${computerSelection}!`);
+            roundMessage.textContent = `Congratulations! ${playerSelection} beats ${computerSelection}!`;
             playerCount += 1;
-            console.log("");
-            console.log(`Player Score: ${playerCount}`); 
-            console.log(`Computer Score: ${computerCount}`);
-            console.log("");
         }
     else {
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}!`);
+        roundMessage.textContent = `You Lose! ${computerSelection} beats ${playerSelection}!`;
         computerCount += 1;
-        console.log("");
-        console.log(`Player Score: ${playerCount}`); 
-        console.log(`Computer Score: ${computerCount}`);
-        console.log("");
     }
+    playerScore.textContent = `Player Score: ${playerCount}`;
+    computerScore.textContent = `Computer Score: ${computerCount}`;
 }
 
 function endGame() {
