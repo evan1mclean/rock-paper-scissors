@@ -136,5 +136,14 @@ p {
       font-size: 20px;
       border-radius: 8px;
       background-color: #e8ad17;
-      border: 1px solid black;
+      box-shadow: 2px 2px 5px;
+  }
+
+  .reset:hover {
+    background-color: rgb(235, 190, 76);
+  }
+
+  .reset:active {
+    transform: translate(1%, 1%);
+    box-shadow: none;
   }
