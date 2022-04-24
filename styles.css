@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 1px solid red;;
-}
+} */
 
 body {
     height: 100vh;
@@ -8,15 +8,33 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #6691CC;
+    color: black;
+    font-family: 'VT323', monospace;
+    font-size: 25px;
+}
+
+p {
+    margin: 15px;
 }
 
 .header {
     text-align: center;
     width: 100%;
+    font-weight: bold;
+    font-size: 40px;
+    background-color: #4076BF;
+    color: #e8ad17;
+    padding: 20px;
+}
+
+.header h1 {
+    margin: 0;
 }
 .content {
     text-align: center;
     height: 75px;
+    font-size: 35px;
 }
 
 .arena {
@@ -27,8 +45,11 @@ body {
 }
 
 .arena img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    background-color: rgb(233, 210, 176);
+    padding: 10px;
 }
 
 .arena .weapon {
@@ -51,8 +72,9 @@ body {
 }
 
 .score p {
-    margin-left: 50px;
-    margin-right: 50px;
+    width: 200px;
+    text-align: center;
+    margin: 20px 0;
 }
 
 .container {
@@ -65,12 +87,25 @@ body {
 .weapon img{
     width: 200px;
     height: 200px;
+    background-color: #e8ad17;
+    border-radius: 12px;
+    box-shadow: 2px 2px 5px;
+}
+
+.weapon img:hover {
+    background-color: rgb(235, 190, 76);
+}
+
+.weapon img:active {
+    transform: translate(1%, 1%);
+    box-shadow: none;
 }
 
 .footer {
     width: 100%;
     margin-top: auto;
     text-align: center;
+    padding: 20px;
 }
 
 .modal {
@@ -89,6 +124,7 @@ body {
   .modal-content {
     text-align: center;
     background-color: #fefefe;
+    color: black;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
