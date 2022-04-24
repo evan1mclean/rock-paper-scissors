@@ -1,5 +1,7 @@
 let playerCount = 0;
 let computerCount = 0;
+let winner;
+let draw = false;
 const playerScore = document.querySelector("#playerScore");
 const computerScore = document.querySelector("#computerScore");
  
@@ -31,17 +33,20 @@ function playRound(playerSelection, computerSelection) {
     const roundMessage = document.createElement('p');
     content.appendChild(roundMessage);
     if (playerSelection === computerSelection) {
-        roundMessage.textContent = "Draw! You threw the same attack!"
+        roundMessage.textContent = "Draw! You threw the same attack!";
+        draw = true;
     }
     else if ((playerSelection === "Rock" && computerSelection === "Scissors") ||
         (playerSelection === "Scissors" && computerSelection === "Paper") ||
         (playerSelection === "Paper" && computerSelection === "Rock")) {
             roundMessage.textContent = `Congratulations! ${playerSelection} beats ${computerSelection}!`;
             playerCount += 1;
+            winner = true;
         }
     else {
         roundMessage.textContent = `You Lose! ${computerSelection} beats ${playerSelection}!`;
         computerCount += 1;
+        winner = false;
     }
     playerScore.textContent = `Player Score: ${playerCount}`;
     computerScore.textContent = `Computer Score: ${computerCount}`;
@@ -77,7 +82,7 @@ function resetGame() {
     reset.addEventListener('click', () => window.location.reload());
 }
 
-//Create function to play game of rock paper scissors
+//Create function to play game of rock paper scissors and update UI
 function game() {
     const arena = document.querySelector('.arena');
     const computerWeapon = document.createElement('img');
@@ -111,6 +116,24 @@ function game() {
             playerSelection = "Scissors";
             playRound(playerSelection, computerSelection);
         }
+        //updates the weapon image size based on winner
+        playerWeapon.style.boxShadow = "none";
+        computerWeapon.style.boxShadow = "none";
+        if (draw === true) {
+            computerWeapon.style.transform = "scale(1, 1)";
+            playerWeapon.style.transform = "scale(1, 1)";
+        }
+        else if (winner === true) {
+            playerWeapon.style.transform = "scale(1.2, 1.2)";
+            playerWeapon.style.boxShadow = "5px 5px 5px";
+            computerWeapon.style.transform = "scale(0.8, 0.8)";
+        }
+        else {
+            playerWeapon.style.transform = "scale(0.8, 0.8)";
+            computerWeapon.style.transform = "scale(1.2, 1.2)";
+            computerWeapon.style.boxShadow = "5px 5px 5px";
+        }
+        draw = false;
         endGame();
         resetGame();
     }));
